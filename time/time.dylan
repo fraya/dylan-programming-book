@@ -22,12 +22,18 @@ define method decode-total-seconds
   values(hours, minutes, seconds);
 end method decode-total-seconds;
 
+define method decode-total-seconds
+  (time :: <time-of-day>)
+  => (hours :: <integer>, minutes :: <integer>, seconds :: <integer>)
+  decode-total-seconds(time.total-seconds);
+end method decode-total-seconds;
+
 define function main
   (name :: <string>, arguments :: <vector>)
   let seconds = encode-total-seconds(8, 30, 59);
   let my-time = make(<time-of-day>, total-seconds: seconds);
   format-out("%d\n", my-time.total-seconds);
-  let(hours, minutes, seconds) = decode-total-seconds(my-time.total-seconds);
+  let(hours, minutes, seconds) = decode-total-seconds(my-time);
   format-out("%d:%d:%d\n", hours, minutes, seconds);
   exit-application(0);
 end function main;
