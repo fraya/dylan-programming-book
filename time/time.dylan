@@ -28,13 +28,18 @@ define method decode-total-seconds
   decode-total-seconds(time.total-seconds);
 end method decode-total-seconds;
 
+define method say-time-of-day
+  (time :: <time-of-day>)
+  => ()
+  let(hours, minutes, seconds) = decode-total-seconds(time);
+  format-out("%d:%s%d", hours, if (minutes < 10) "0" else "" end, minutes);
+end method say-time-of-day;
+
 define function main
   (name :: <string>, arguments :: <vector>)
   let seconds = encode-total-seconds(8, 30, 59);
   let my-time = make(<time-of-day>, total-seconds: seconds);
-  format-out("%d\n", my-time.total-seconds);
-  let(hours, minutes, seconds) = decode-total-seconds(my-time);
-  format-out("%d:%d:%d\n", hours, minutes, seconds);
+  say-time-of-day(my-time);
   exit-application(0);
 end function main;
 
