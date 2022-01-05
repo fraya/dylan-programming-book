@@ -24,8 +24,10 @@ define test test-encode-decode ()
 end test;
 
 define test test-print-object-time-of-day ()
-  let t = make(<time-of-day>, total-seconds: 30659);
-  assert-equal("8:30", as(<string>, t));
+  let t1 = make(<time-of-day>, total-seconds: 30659);
+  assert-equal("8:30", as(<string>, t1));
+  let t2 = make(<time-of-day>, total-seconds: 29399);
+  assert-equal("8:09", as(<string>, t2));
 end test;
 
 define suite time-test-suite ()

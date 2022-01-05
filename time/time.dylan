@@ -34,8 +34,7 @@ define method as
   let (hours, minutes, seconds) = decode-total-seconds(t);
   concatenate(integer-to-string(hours),
 	      ":",
-	      if (minutes < 10) "0" else "" end,
-	      integer-to-string(minutes))
+	      integer-to-string(minutes, size: 2))
 end;
 
 define method say-time-of-day
