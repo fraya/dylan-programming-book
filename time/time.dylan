@@ -43,27 +43,6 @@ define method as
   concatenate(hh, ":", mm)
 end;
 
-define method say-time-of-day
-    (time :: <time-of-day>) => ()
-  let (hours, minutes, seconds) = decode-total-seconds(time);
-  format-out("%d:%s%d", hours, if (minutes < 10) "0" else "" end, minutes);
-end method say-time-of-day;
-
-define method past?
-    (time :: <time-offset>) => (past? :: <boolean>)
-  time.total-seconds < 0
-end;
-
-define method say-time-offset
-    (time :: <time-offset>) => ()
-  let (hours, minutes, seconds) = decode-total-seconds(time);
-  format-out("%s %d:%s%d",
-             if (past?(time)) "minus" else "plus" end,
-	     hours,
-	     if (minutes < 10) "0" else "" end,
-	     minutes);
-end method say-time-offset;
-
 define method as
     (class == <string>, time :: <time-offset>)
  => (s :: <string>)
@@ -73,4 +52,23 @@ define method as
   let mm   = integer-to-string(minutes, size: 2);
   concatenate(sign, " ", hh, ":", mm)
 end method as;
- 
+
+define generic say (any-object :: <object>) => ();
+
+define method say
+    (time :: <time>) => ()
+  let (hours, minutes, seconds) = decode-total-seconds(time);
+  format-out("%d:%s%d", hours, if (minutes < 10) "0" else "" end, minutes);
+end method say;
+
+define method past?
+    (time :: <time-offset>) => (past? :: <boolean>)
+  time.total-seconds < 0
+end;
+
+define method say
+    (time :: <time-offset>) => ()
+  format-out("%s ", if (past?(time)) "minus" else "plus" end);
+  next-method();
+end method say;
+

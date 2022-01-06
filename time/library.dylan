@@ -21,7 +21,6 @@ define module time
     encode-total-seconds,
     decode-total-seconds,
     past?,
-    say-time-of-day,
-    say-time-offset;
+    say;
 
 end module time;
