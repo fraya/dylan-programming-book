@@ -35,7 +35,7 @@ define method decode-total-seconds
 end method decode-total-seconds;
 
 define method as
-    (class == <string>, t :: <time-of-day>)
+    (class == <string>, t :: <time>)
  => (s :: <string>)
   let (hours, minutes, seconds) = decode-total-seconds(t);
   let hh = integer-to-string(hours);
@@ -46,11 +46,8 @@ end;
 define method as
     (class == <string>, time :: <time-offset>)
  => (s :: <string>)
-  let (hours, minutes, seconds) = decode-total-seconds(time);
   let sign = if (past?(time)) "minus" else "plus" end;
-  let hh   = integer-to-string(hours);
-  let mm   = integer-to-string(minutes, size: 2);
-  concatenate(sign, " ", hh, ":", mm)
+  concatenate(sign, " ", next-method())
 end method as;
 
 define generic say (any-object :: <object>) => ();
