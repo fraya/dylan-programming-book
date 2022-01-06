@@ -32,9 +32,9 @@ define method as
     (class == <string>, t :: <time-of-day>)
  => (s :: <string>)
   let (hours, minutes, seconds) = decode-total-seconds(t);
-  concatenate(integer-to-string(hours),
-	      ":",
-	      integer-to-string(minutes, size: 2))
+  let hh = integer-to-string(hours);
+  let mm = integer-to-string(minutes, size: 2);
+  concatenate(hh, ":", mm)
 end;
 
 define method say-time-of-day
