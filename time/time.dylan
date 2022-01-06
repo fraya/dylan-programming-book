@@ -43,3 +43,38 @@ define method say-time-of-day
   format-out("%d:%s%d", hours, if (minutes < 10) "0" else "" end, minutes);
 end method say-time-of-day;
 
+define class <time-offset> (<object>)
+  slot total-seconds :: <integer>, init-keyword: total-seconds:;
+end class <time-offset>;
+
+define method past?
+  (time :: <time-offset>) => (past? :: <boolean>)
+  time.total-seconds < 0
+end;
+
+define method decode-total-seconds
+    (time :: <time-offset>)
+ => (hours :: <integer>, minutes :: <integer>, seconds :: <integer>)
+ decode-total-seconds(abs(time.total-seconds))
+end;
+
+define method say-time-offset
+  (time :: <time-offset>) => ()
+  let (hours, minutes, seconds) = decode-total-seconds(time);
+  format-out("%s %d:%s%d",
+             if (past?(time)) "minus" else "plus" end,
+	     hours,
+	     if (minutes < 10) "0" else "" end,
+	     minutes);
+end method say-time-offset;
+
+define method as
+    (class == <string>, time :: <time-offset>)
+ => (s :: <string>)
+ let (hours, minutes, seconds) = decode-total-seconds(time);
+ let sign = if (past?(time)) "minus" else "plus" end;
+ let hh   = integer-to-string(hours);
+ let mm   = integer-to-string(minutes, size: 2);
+ concatenate(sign, " ", hh, ":", mm)
+end method as;
+ 

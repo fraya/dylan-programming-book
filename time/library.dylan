@@ -15,9 +15,13 @@ define module time
   
   export
     <time-of-day>,
+    <time-offset>,
     total-seconds,
     total-seconds-setter,
     encode-total-seconds,
     decode-total-seconds,
-    say-time-of-day;
+    past?,
+    say-time-of-day,
+    say-time-offset;
+
 end module time;

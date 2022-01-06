@@ -12,8 +12,12 @@ define test test-decode-total-seconds ()
 end test;
 
 define test test-decode-total-seconds-time ()
-  let t = make(<time-of-day>, total-seconds: 30659);
-  assert-equal(values(8, 30, 59), decode-total-seconds(t))
+  let t1 = make(<time-of-day>, total-seconds: 30659);
+  let t2 = make(<time-offset>, total-seconds: 30659);
+  let expected = values(8, 30, 59);
+  
+  assert-equal(expected, decode-total-seconds(t1));
+  assert-equal(expected, decode-total-seconds(t2));
 end test;
 
 define test test-encode-decode ()
@@ -28,6 +32,10 @@ define test test-print-object-time-of-day ()
   assert-equal("8:30", as(<string>, t1));
   let t2 = make(<time-of-day>, total-seconds: 29399);
   assert-equal("8:09", as(<string>, t2));
+  let t3 = make(<time-offset>, total-seconds: 30659);
+  assert-equal("plus 8:30", as(<string>, t3));
+  let t4 = make(<time-offset>, total-seconds: -29399);
+  assert-equal("minus 8:09", as(<string>, t4));
 end test;
 
 define suite time-test-suite ()
