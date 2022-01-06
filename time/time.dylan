@@ -4,9 +4,15 @@ Synopsis: A specific time of day from 00:00 (midnight) to below 24:00
 Author:   Fernando Raya
 License:  See LICENSE
 
-define class <time-of-day> (<object>)
+define class <time> (<object>)
   slot total-seconds :: <integer>, init-keyword: total-seconds:;
+end class <time>;
+
+define class <time-of-day> (<time>)
 end class <time-of-day>;
+
+define class <time-offset> (<time>)
+end class <time-offset>;
 
 define method encode-total-seconds
     (hours :: <integer>, minutes :: <integer>, seconds :: <integer>)
@@ -23,9 +29,9 @@ define method decode-total-seconds
 end method decode-total-seconds;
 
 define method decode-total-seconds
-    (time :: <time-of-day>)
+    (time :: <time>)
  => (hours :: <integer>, minutes :: <integer>, seconds :: <integer>)
-  decode-total-seconds(time.total-seconds);
+  decode-total-seconds(abs(time.total-seconds));
 end method decode-total-seconds;
 
 define method as
@@ -43,19 +49,9 @@ define method say-time-of-day
   format-out("%d:%s%d", hours, if (minutes < 10) "0" else "" end, minutes);
 end method say-time-of-day;
 
-define class <time-offset> (<object>)
-  slot total-seconds :: <integer>, init-keyword: total-seconds:;
-end class <time-offset>;
-
 define method past?
     (time :: <time-offset>) => (past? :: <boolean>)
   time.total-seconds < 0
-end;
-
-define method decode-total-seconds
-    (time :: <time-offset>)
- => (hours :: <integer>, minutes :: <integer>, seconds :: <integer>)
-  decode-total-seconds(abs(time.total-seconds))
 end;
 
 define method say-time-offset
