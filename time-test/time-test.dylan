@@ -39,9 +39,9 @@ define test test-print-object-time-of-day ()
 end test;
 
 define suite time-test-suite ()
-   test test-encode-total-seconds;
-   test test-decode-total-seconds;
-   test test-print-object-time-of-day;
+  test test-encode-total-seconds;
+  test test-decode-total-seconds;
+  test test-print-object-time-of-day;
 end;
 
 run-test-application();
