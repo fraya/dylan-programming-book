@@ -44,4 +44,13 @@ define suite time-test-suite ()
   test test-print-object-time-of-day;
 end;
 
+define test test-add-time-offset ()
+  let t1 = make(<time-offset>,
+		total-seconds: - encode-total-seconds(2, 0, 0));
+  let t2 = make(<time-offset>,
+		total-seconds: encode-total-seconds(15, 20, 45));
+  let sum = decode-total-seconds(t1 + t2);
+  assert-equal(values(13, 20, 45), sum);
+end test;
+
 run-test-application();
