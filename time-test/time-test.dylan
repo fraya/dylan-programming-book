@@ -53,4 +53,14 @@ define test test-add-time-offset ()
   assert-equal(values(13, 20, 45), sum);
 end test;
 
+define test test-add-time-offset-time-of-day ()
+  let t1 = make(<time-of-day>,
+                total-seconds: encode-total-seconds(8, 30, 59));
+  let o1 = make(<time-offset>,
+                total-seconds: - encode-total-seconds(2, 0, 0));
+  let rs = make(<time-of-day>,
+                total-seconds: encode-total-seconds(6, 30, 59));
+  assert-equal(rs.total-seconds, (o1 + t1).total-seconds)
+end test;
+
 run-test-application();
