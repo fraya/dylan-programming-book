@@ -1,16 +1,16 @@
 Module: dylan-user
 
-define library time-test
+define library time-tests
   use common-dylan;
   use testworks;
   use time;
   use io;
 end library;
 
-define module time-test
+define module time-tests
   use common-dylan;
   use testworks;
   use time;
   use streams;
-  export time-test-suite;
+  export time-tests-suite;
 end module;

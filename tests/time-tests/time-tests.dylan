@@ -1,4 +1,4 @@
-Module: time-test
+Module: time-tests
 Author: Fernando Raya
 License: See LICENSE
 
