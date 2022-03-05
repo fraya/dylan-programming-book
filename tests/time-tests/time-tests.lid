@@ -1,4 +1,4 @@
 Library:	time-tests
-Target-Type:	exe
+Target-Type:	executable
 Files: 		library
        		time-tests
