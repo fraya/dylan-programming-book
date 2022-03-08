@@ -1,4 +1,4 @@
-Module: all-tests
+Module: dpg-tests
 Author: Fernando Raya
 License: See LICENSE
 
