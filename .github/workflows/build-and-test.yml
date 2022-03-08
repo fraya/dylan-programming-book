@@ -20,8 +20,8 @@ jobs:
 
       - uses: dylan-lang/install-opendylan@v1
 
-      - name: Build time module tests
-        run: ./dylan-compiler -build time-tests
+      - name: Build all module tests
+        run: ./dylan-compiler -build dpg-tests
 
-      - name: Run time module tests
-        run: _build/bin/time-tests
+      - name: Run all module tests
+        run: _build/bin/dpg-tests
