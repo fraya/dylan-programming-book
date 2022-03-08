@@ -60,7 +60,11 @@ end test;
 define suite time-test-suite ()
   test test-encode-total-seconds;
   test test-decode-total-seconds;
+  test test-decode-total-seconds-time;
+  test test-encode-decode;
   test test-print-object-time-of-day;
+  test test-add-time-offset;
+  test test-add-time-offset-time-of-day;
 end;
 
 run-test-application();
