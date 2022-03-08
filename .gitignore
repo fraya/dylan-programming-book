@@ -2,5 +2,5 @@
 *~
 
 # Dylan build code
-time/_build/*
+_build/
 
