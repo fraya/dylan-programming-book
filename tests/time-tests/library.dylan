@@ -5,6 +5,7 @@ define library time-tests
   use testworks;
   use time;
   use io;
+  export time-tests;
 end library;
 
 define module time-tests

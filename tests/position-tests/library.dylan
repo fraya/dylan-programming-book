@@ -5,6 +5,7 @@ define library position-tests
   use testworks;
   use position;
   use io;
+  export position-tests;
 end library;
 
 define module position-tests

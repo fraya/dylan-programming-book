@@ -6,7 +6,7 @@ define test test-print-object-position ()
 
 end test;
 
-define suite position-test-suite ()
+define suite position-tests-suite ()
   test test-print-object-position;
 end;
 
