@@ -4,3 +4,5 @@
 # Dylan build code
 _build/
 
+# Project files
+*.hdp
