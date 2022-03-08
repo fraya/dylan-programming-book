@@ -12,5 +12,5 @@ define module time-tests
   use testworks;
   use time;
   use streams;
-  export time-tests-suite;
+  export time-test-suite;
 end module;

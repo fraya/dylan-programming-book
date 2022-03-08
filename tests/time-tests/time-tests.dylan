@@ -38,12 +38,6 @@ define test test-print-object-time-of-day ()
   assert-equal("minus 8:09", as(<string>, t4));
 end test;
 
-define suite time-test-suite ()
-  test test-encode-total-seconds;
-  test test-decode-total-seconds;
-  test test-print-object-time-of-day;
-end;
-
 define test test-add-time-offset ()
   let t1 = make(<time-offset>,
 		total-seconds: - encode-total-seconds(2, 0, 0));
@@ -62,5 +56,11 @@ define test test-add-time-offset-time-of-day ()
                 total-seconds: encode-total-seconds(6, 30, 59));
   assert-equal(rs.total-seconds, (o1 + t1).total-seconds)
 end test;
+
+define suite time-test-suite ()
+  test test-encode-total-seconds;
+  test test-decode-total-seconds;
+  test test-print-object-time-of-day;
+end;
 
 run-test-application();
