@@ -5,7 +5,7 @@ define library dpg-tests
   use testworks;
   use time-tests;
   use position-tests;
-  export dpt-tests;
+  export dpg-tests;
 end library;
 
 define module dpg-tests
