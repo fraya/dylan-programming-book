@@ -4,7 +4,7 @@ Synopsis: A specific time of day from 00:00 (midnight) to below 24:00
 Author:   Fernando Raya
 License:  See LICENSE
 
-define class <time> (<object>)
+define abstract class <time> (<object>)
   slot total-seconds :: <integer>, init-keyword: total-seconds:;
 end class <time>;
 
