@@ -5,7 +5,7 @@ Synopsis: Express the position of an object as an absolute position
 Author:   Fernando Raya
 License:  See LICENSE
 
-define class <position> (<object>)
+define abstract class <position> (<object>)
 end class <position>;
 
 define class <absolute-position> (<position>)
@@ -18,3 +18,9 @@ define class <relative-position> (<position>)
   constant slot angle;
 end class <relative-position>;
 
+define abstract class <directed-angle> (<object>)
+  constant slot total-seconds :: <integer>,
+    init-keyword: total-seconds:;
+  constant slot direction :: <string>,
+    init-keyword: direction:;
+end class <directed-angle>;
