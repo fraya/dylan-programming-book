@@ -16,8 +16,10 @@ define abstract class <position> (<object>)
 end class <position>;
 
 define class <absolute-position> (<position>)
-  constant slot latitude;
-  constant slot longitude;
+  constant slot latitude :: <directed-angle>,
+    init-keyword: latitude:;
+  constant slot longitude :: <directed-angle>,
+    init-keyword: longitude:;
 end class <absolute-position>;
 
 define class <relative-position> (<position>)
