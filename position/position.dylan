@@ -12,13 +12,19 @@ define abstract class <directed-angle> (<object>)
     init-keyword: direction:;
 end class <directed-angle>;
 
+define class <latitude> (<directed-angle>)
+end class <latitude>;
+
+define class <longitude> (<directed-angle>)
+end class <longitude>;
+
 define abstract class <position> (<object>)
 end class <position>;
 
 define class <absolute-position> (<position>)
-  constant slot latitude :: <directed-angle>,
+  constant slot latitude :: <latitude>,
     init-keyword: latitude:;
-  constant slot longitude :: <directed-angle>,
+  constant slot longitude :: <longitude>,
     init-keyword: longitude:;
 end class <absolute-position>;
 
@@ -26,3 +32,4 @@ define class <relative-position> (<position>)
   constant slot distance;
   constant slot angle;
 end class <relative-position>;
+
