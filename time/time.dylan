@@ -20,6 +20,10 @@ define method encode-total-seconds
   ((hours * 60) + minutes) * 60 + seconds;
 end method encode-total-seconds;
 
+define open generic decode-total-seconds
+  (obj :: <object>)
+  => (hours :: <integer>, minutes :: <integer>, seconds :: <integer>);
+
 define method decode-total-seconds
     (total-seconds :: <integer>)
  => (hours :: <integer>, minutes :: <integer>, seconds :: <integer>)
