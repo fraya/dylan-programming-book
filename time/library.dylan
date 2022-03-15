@@ -20,7 +20,6 @@ define module time
     total-seconds-setter,
     encode-total-seconds,
     decode-total-seconds,
-    past?,
-    say;
+    past?;
 
 end module time;

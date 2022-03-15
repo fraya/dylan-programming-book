@@ -50,24 +50,10 @@ define method as
   concatenate(sign, " ", next-method())
 end method as;
 
-define generic say (any-object :: <object>) => ();
-
-define method say
-    (time :: <time>) => ()
-  let (hours, minutes, seconds) = decode-total-seconds(time);
-  format-out("%d:%s%d", hours, if (minutes < 10) "0" else "" end, minutes);
-end method say;
-
 define method past?
     (time :: <time-offset>) => (past? :: <boolean>)
   time.total-seconds < 0
 end;
-
-define method say
-    (time :: <time-offset>) => ()
-  format-out("%s ", if (past?(time)) "minus" else "plus" end);
-  next-method();
-end method say;
 
 define method \+
     (offset1 :: <time-offset>, offset2 :: <time-offset>)
