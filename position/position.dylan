@@ -33,3 +33,19 @@ define class <relative-position> (<position>)
   constant slot angle;
 end class <relative-position>;
 
+define method decode-total-seconds
+    (angle :: <directed-angle>)
+ => (degrees :: <integer>, minutes :: <integer>, seconds :: <integer>)
+  decode-total-seconds(angle.total-seconds)
+end;
+
+define method as
+    (class == <string>, position :: <absolute-position>)
+ => (str :: <string>)
+  let(degrees, minutes, seconds) = decode-total-seconds(position.latitude);
+  concatenate(integer-to-string(degrees), " degrees ",
+	      integer-to-string(minutes), " minutes ",
+	      integer-to-string(seconds), " seconds ",
+	      position.latitude.direction, " latitude")
+end method as;
+
