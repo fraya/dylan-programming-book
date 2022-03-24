@@ -14,6 +14,11 @@ classDiagram
       directed_angle : direction
       directed_angle <|-- latitude
       directed_angle <|-- longitude
+
+      class position
+      position <|-- absolute_position
+      absolute_position : latitude
+      absolute_position : longitude
 ```
 
 ## Time
