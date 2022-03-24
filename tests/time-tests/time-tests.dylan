@@ -3,7 +3,7 @@ Author: Fernando Raya
 License: See LICENSE
 
 define test test-encode-total-seconds ()
-  let seconds = encode-total-seconds(8, 30, 59);
+  let seconds = encode-total-seconds(hours: 8, minutes: 30, seconds: 59);
   assert-equal(30659, seconds)
 end test;
 
@@ -21,9 +21,9 @@ define test test-decode-total-seconds-time ()
 end test;
 
 define test test-encode-decode ()
-  let sec1    = 30659;
-  let (h,m,s) = decode-total-seconds(sec1);
-  let sec2    = encode-total-seconds(h, m, s);
+  let sec1 = 30659;
+  let (hh, mm, ss) = decode-total-seconds(sec1);
+  let sec2 = encode-total-seconds(hours: hh, minutes: mm, seconds: ss);
   assert-equal(sec1, sec2)
 end test;
 
@@ -40,20 +40,20 @@ end test;
 
 define test test-add-time-offset ()
   let t1 = make(<time-offset>,
-		total-seconds: - encode-total-seconds(2, 0, 0));
+		total-seconds: - encode-total-seconds(hours: 2));
   let t2 = make(<time-offset>,
-		total-seconds: encode-total-seconds(15, 20, 45));
+		total-seconds: encode-total-seconds(hours: 15, minutes: 20, seconds: 45));
   let sum = decode-total-seconds(t1 + t2);
   assert-equal(values(13, 20, 45), sum);
 end test;
 
 define test test-add-time-offset-time-of-day ()
   let t1 = make(<time-of-day>,
-                total-seconds: encode-total-seconds(8, 30, 59));
+                total-seconds: encode-total-seconds(hours: 8, minutes: 30, seconds: 59));
   let o1 = make(<time-offset>,
-                total-seconds: - encode-total-seconds(2, 0, 0));
+                total-seconds: - encode-total-seconds(hours: 2));
   let rs = make(<time-of-day>,
-                total-seconds: encode-total-seconds(6, 30, 59));
+                total-seconds: encode-total-seconds(hours: 6, minutes: 30, seconds: 59));
   assert-equal(rs.total-seconds, (o1 + t1).total-seconds)
 end test;
 
