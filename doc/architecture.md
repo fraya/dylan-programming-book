@@ -6,9 +6,10 @@
 
 ```mermaid
 classDiagram
-"<time>" : total-seconds
-"<time>" <|-- "<time-of-day>"
-"<time>" <|-- "<time-offset>"
+  class time
+  time : total-seconds
+  time <|-- time-of-day
+  time>" <|-- time-offset
 ```
 
 ### <directed-angle>
