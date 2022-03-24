@@ -4,19 +4,10 @@
 
 ```mermaid
 classDiagram
+      class time
       time : total_seconds
       time <|-- time_of_day
       time <|-- time_offset
-      directed_angle : total_seconds
-      directed_angle : direction
-      directed_angle <|-- latitude
-      directed_angle <|-- longitude
-      position <|-- absolute_position
-      absolute_position : latitude
-      absolute_position : longitude
-      position <|-- relative_position
-      relative_position : distance
-      relative_position : angle
 ```
 
 ## Time
