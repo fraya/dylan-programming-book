@@ -8,6 +8,12 @@ classDiagram
       time : total_seconds
       time <|-- time_of_day
       time <|-- time_offset
+
+      class directed_angle
+      directed_angle : total_seconds
+      directed_angle : direction
+      directed_angle <|-- latitude
+      directed_angle <|-- longitude
 ```
 
 ## Time
