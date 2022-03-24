@@ -2,36 +2,26 @@
 
 ## Class diagram
 
-### <time>
-
-```mermaid
-classDiagram
-  class time
-  time : total_seconds
-  time <|-- time_of_day
-  time <|-- time_offset
-```
-
 ```mermaid
 graph TB;
-      TimeOfDay-->Time;
-      TimeOffset-->Time;
+      time<--time_of_day;
+      time<--time_offset;
+      directed_angle<--latitude;
+      directed_angle<--longitude;
+      position<--absolute_position;
+      position<--relative_position;
 ```
 
-### <directed-angle>
+## Time
 
-```mermaid
-classDiagram
-"<directed-angle>" : total-seconds
-"<directed-angle>" : direction
-"<directed-angle>" <|-- "<latitude>"
-"<directed-angle>" <|-- "<longitude>"
-``` 
+### `<time>`
 
-### <position>
+- `decode-total-seconds(<object>) => (hh, mm, ss)`
+- `as(<time>) => <string>`
 
-```mermaid
-classDiagram
-"<position>" <|-- "<absolute-position>"
-"<position>" <|-- "<relative-position>"
-```
+### `<time-offset>`
+
+- `past?(<time-offset>) => <boolean>`
+- `+(<time-offset>, <time-offset>) => <time-offset>`
+- `+(<time-offset>, <time-of-day>) => <time-of-day>`
+- `+(<time-of-day>, <time-offset>) => <time-of-day>`
