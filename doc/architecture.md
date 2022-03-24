@@ -3,13 +3,13 @@
 ## Class diagram
 
 ```mermaid
-graph TB;
-      time<--time_of_day;
-      time<--time_offset;
-      directed_angle<--latitude;
-      directed_angle<--longitude;
-      position<--absolute_position;
-      position<--relative_position;
+classDiagram
+      time <|-- time_of_day;
+      time <|-- time_offset;
+      directed_angle <|-- latitude;
+      directed_angle <|-- longitude;
+      position <|-- absolute_position;
+      position <|-- relative_position;
 ```
 
 ## Time
