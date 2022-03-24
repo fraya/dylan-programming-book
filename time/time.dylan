@@ -15,7 +15,7 @@ define class <time-offset> (<time>)
 end class <time-offset>;
 
 define method encode-total-seconds
-    (#key hours :: <integer>, minutes :: <integer> = 0, seconds :: <integer> = 0)
+    (#key hours :: <integer> = 0, minutes :: <integer> = 0, seconds :: <integer> = 0)
  => (total-seconds :: <integer>)
   ((hours * 60) + minutes) * 60 + seconds;
 end method encode-total-seconds;
