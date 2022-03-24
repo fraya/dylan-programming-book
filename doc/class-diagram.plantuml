@@ -1,0 +1,38 @@
+@startuml
+
+class "<time>" {
+      total-seconds : <integer>
+}
+
+class "<time-of-day>"
+class "<time-offset>"
+
+"<time>" <|-- "<time-of-day>"
+"<time>" <|-- "<time-offset>"
+
+class "<directed-angle>" {
+      total-seconds : <integer>
+      direction
+}
+
+class "<latitude>"
+class "<longitude>"
+
+"<latitude>"  --|> "<directed-angle>" 
+"<longitude>" --|> "<directed-angle>" 
+
+class "<position>"
+class "<absolute-position>"
+
+class "<relative-position>" {
+      distance
+      angle
+}
+
+"<position>" <|-- "<absolute-position>"
+"<position>" <|-- "<relative-position>"
+
+"<absolute-position>" --> "<latitude>" : latitude
+"<absolute-position>" --> "<longitude>" : longitude
+
+@enduml

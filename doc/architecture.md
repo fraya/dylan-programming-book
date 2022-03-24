@@ -28,6 +28,8 @@ classDiagram
       relative_position : angle	
 ```
 
+![Class diagram](./class-diagram.png)
+
 ## Time
 
 ### `<time>`
