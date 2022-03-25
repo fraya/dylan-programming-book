@@ -5,9 +5,7 @@ Synopsis: Express the position of an object as an absolute position
 Author:   Fernando Raya
 License:  See LICENSE
 
-define abstract class <angle> (<object>)
-  constant slot total-seconds :: <integer>,
-    init-keyword: total-seconds:;
+define abstract class <angle> (<sixty-unit>)
 end class <angle>;
 
 define abstract class <directed-angle> (<angle>)
@@ -41,20 +39,19 @@ define class <relative-position> (<position>)
     init-keyword: angle:;
 end class <relative-position>;
 
-define method decode-total-seconds
-    (angle :: <directed-angle>)
- => (degrees :: <integer>, minutes :: <integer>, seconds :: <integer>)
-  decode-total-seconds(angle.total-seconds)
-end;
-
 define method as
-    (class == <string>, angle :: <directed-angle>)
+    (class == <string>, angle :: <angle>)
  => (str :: <string>)
   let(degrees, minutes, seconds) = decode-total-seconds(angle);
   concatenate(integer-to-string(degrees), " degrees ",
 	      integer-to-string(minutes), " minutes ",
-	      integer-to-string(seconds), " seconds ",
-	      angle.direction)
+	      integer-to-string(seconds), " seconds")
+end method as;
+
+define method as
+    (class == <string>, angle :: <directed-angle>)
+ => (str :: <string>)
+  concatenate(next-method(), " ", angle.direction)
 end method as;
 
 define method as
@@ -75,3 +72,10 @@ define method as
   concatenate(as(<string>, position.latitude), "\n", as(<string>, position.longitude))
 end method as;
 
+define method as
+    (class == <string>, position :: <relative-position>)
+ => (str :: <string>)
+  concatenate(float-to-string(position.distance),
+	      " miles away at heading ",
+	      as(<string>, position.angle))
+end method as;

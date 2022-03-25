@@ -4,8 +4,7 @@ Synopsis: A specific time of day from 00:00 (midnight) to below 24:00
 Author:   Fernando Raya
 License:  See LICENSE
 
-define abstract class <time> (<object>)
-  slot total-seconds :: <integer>, init-keyword: total-seconds:;
+define abstract class <time> (<sixty-unit>)
 end class <time>;
 
 define class <time-of-day> (<time>)
@@ -13,24 +12,6 @@ end class <time-of-day>;
 
 define class <time-offset> (<time>)
 end class <time-offset>;
-
-define method encode-total-seconds
-    (#key hours :: <integer> = 0, minutes :: <integer> = 0, seconds :: <integer> = 0)
- => (total-seconds :: <integer>)
-  ((hours * 60) + minutes) * 60 + seconds;
-end method encode-total-seconds;
-
-define open generic decode-total-seconds
-  (obj :: <object>)
-  => (hours :: <integer>, minutes :: <integer>, seconds :: <integer>);
-
-define method decode-total-seconds
-    (total-seconds :: <integer>)
- => (hours :: <integer>, minutes :: <integer>, seconds :: <integer>)
-  let(total-minutes, seconds) = truncate/(total-seconds, 60);
-  let(hours, minutes) = truncate/(total-minutes, 60);
-  values(hours, minutes, seconds);
-end method decode-total-seconds;
 
 define method decode-total-seconds
     (time :: <time>)

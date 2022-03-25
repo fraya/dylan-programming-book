@@ -16,7 +16,6 @@ define module time
       <time-of-day>
     , <time-offset>
     , total-seconds
-    , total-seconds-setter
     , encode-total-seconds
     , decode-total-seconds
     , past?
