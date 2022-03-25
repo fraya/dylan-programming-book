@@ -2,7 +2,7 @@
 
 ## Class diagram
 
-![Class diagram](./class-diagram.svg)
+![Class diagram](./class-diagram.dot.svg)
 
 ## Time
 

@@ -1,0 +1,57 @@
+digraph G {
+
+  node [
+    shape=box;
+    color="#f7f7f7";
+    style="filled,setlinewidth(1)";
+    fontname="Courier New";
+  ];
+	
+  "<object>"		[label="<object>"];
+  "<sixty-unit>"       	[label="a\n<sixty-unit>"];
+  "<time>"              [label="a\n<time>"];
+  "<angle>"            	[label="a\n<angle>"];
+  "<time-of-day>"       [label="c\n<time-of-day>"];
+  "<time-offset>"       [label="c\n<time-offset>"];
+  "<directed-angle>"   	[label="a\n<directed-angle>"];
+  "<relative-angle>"    [label="c\n<relative-angle>"];
+  "<position>"          [label="a\n<position>"];
+  "<absolute-position>"	[label="c\n<absolute-position>"];
+  "<relative-position>"	[label="c\n<relative-position>"];
+  "<latitude>"          [label="c\n<latitude>"];
+  "<longitude>"		[label="c\n<longitude>"];
+  
+  "<object>"		-> "<sixty-unit>";
+  "<object>"           	-> "<position>";
+  "<sixty-unit>"     	-> "<time>";
+  "<sixty-unit>"     	-> "<angle>";
+  "<time>g"           	-> "<time-of-day>";
+  "<time>"           	-> "<time-offset>";
+  "<angle>"          	-> "<directed-angle>";
+  "<angle>"          	-> "<relative-angle>";
+  "<directed-angle>" 	-> "<latitude>";
+  "<directed-angle>"  	-> "<longitude>"; 
+  "<position>"       	-> "<absolute-position>";
+  "<position>"       	-> "<relative-position>";
+
+  {
+    rank = sink;
+    Legend [
+      shape=none, margin=0,label=<
+    <table border="0" cellpadding="2" cellborder="0">
+      <tr>
+        <td><b>Abrv</b></td>
+	<td><b>Desc</b></td>
+      </tr>
+      <tr>
+        <td>a</td>
+	<td>abstract</td>
+      </tr>
+      <tr>
+        <td>c</td>
+	<td>concrete</td>
+      </tr>
+    </table>
+  >];
+  }
+}
