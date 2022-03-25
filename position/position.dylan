@@ -40,18 +40,30 @@ define method decode-total-seconds
 end;
 
 define method as
+    (class == <string>, angle :: <directed-angle>)
+ => (str :: <string>)
+  let(degrees, minutes, seconds) = decode-total-seconds(angle);
+  concatenate(integer-to-string(degrees), " degrees ",
+	      integer-to-string(minutes), " minutes ",
+	      integer-to-string(seconds), " seconds ",
+	      angle.direction)
+end method as;
+
+define method as
+    (class == <string>, position :: <latitude>)
+ => (str :: <string>)
+  concatenate(next-method(), " latitude")
+end;
+
+define method as
+    (class == <string>, position :: <longitude>)
+ => (str :: <string>)
+  concatenate(next-method(), " longitude")
+end;
+
+define method as
     (class == <string>, position :: <absolute-position>)
  => (str :: <string>)
-  let(degrees1, minutes1, seconds1) = decode-total-seconds(position.latitude);
-  let latitude = concatenate(integer-to-string(degrees1), " degrees ",
-			     integer-to-string(minutes1), " minutes ",
-			     integer-to-string(seconds1), " seconds ",
-			     position.latitude.direction, " latitude");
-  let(degrees2, minutes2, seconds2) = decode-total-seconds(position.longitude);
-  let longitude = concatenate(integer-to-string(degrees2), " degrees ",
-			      integer-to-string(minutes2), " minutes ",
-			      integer-to-string(seconds2), " seconds ",
-			      position.longitude.direction, " longitude");
-  concatenate(latitude, "\n", longitude)
+  concatenate(as(<string>, position.latitude), "\n", as(<string>, position.longitude))
 end method as;
 
