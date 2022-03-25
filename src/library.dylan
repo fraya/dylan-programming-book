@@ -1,24 +1,28 @@
 Module: dylan-user
 
-define library position
+define library time
   use common-dylan;
   use io;
 
-  use time;
-  
-  export position;  
-end library position;
+  export time;  
+end library time;
 
-define module position
+define module time
   use common-dylan;
   use format-out;
   use streams;
 
-  use time,
-    import: { decode-total-seconds };
-  
-  export <position>;
+  export
+      <time-of-day>
+    , <time-offset>
+    , total-seconds
+    , total-seconds-setter
+    , encode-total-seconds
+    , decode-total-seconds
+    , past?
+    ;
 
+  export <position>;
   export
     <absolute-position>
     , latitude
@@ -42,4 +46,4 @@ define module position
     , <longitude>
     ;
   
-end module position;
+end module time;

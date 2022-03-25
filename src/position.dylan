@@ -1,4 +1,4 @@
-Module: position
+Module: time
 Synopsis: Express the position of an object as an absolute position
           with latitude and longitude or as a relative position with a
           distance and an angle. 
