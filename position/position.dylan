@@ -5,12 +5,18 @@ Synopsis: Express the position of an object as an absolute position
 Author:   Fernando Raya
 License:  See LICENSE
 
-define abstract class <directed-angle> (<object>)
+define abstract class <angle> (<object>)
   constant slot total-seconds :: <integer>,
     init-keyword: total-seconds:;
+end class <angle>;
+
+define abstract class <directed-angle> (<angle>)
   constant slot direction :: <string>,
     init-keyword: direction:;
 end class <directed-angle>;
+
+define class <relative-angle> (<angle>)
+end class <relative-angle>;
 
 define class <latitude> (<directed-angle>)
 end class <latitude>;
@@ -29,8 +35,10 @@ define class <absolute-position> (<position>)
 end class <absolute-position>;
 
 define class <relative-position> (<position>)
-  constant slot distance;
-  constant slot angle;
+  constant slot distance :: <single-float>,
+    init-keyword: distance:;
+  constant slot angle :: <relative-angle>,
+    init-keyword: angle:;
 end class <relative-position>;
 
 define method decode-total-seconds
