@@ -2,30 +2,30 @@
 
 class "<object>"
 abstract "<sixty-unit>"
-class "<position>"
-class "<time>"
+abstract "<time>"
+abstract "<angle>"
 class "<time-of-day>"
 class "<time-offset>"
-abstract "<angle>"
 abstract "<directed-angle>"
 class "<relative-angle>"
-class "<latitude>"
-class "<longitude>"
+abstract "<position>"
 class "<absolute-position>"
 class "<relative-position>"
+class "<latitude>"
+class "<longitude>"
 
-"<object>"         <|-- "<sixty-unit>"
-"<object>"         <|-- "<position>"
-"<sixty-unit>"     <|-- "<time>"
-"<sixty-unit>"     <|-- "<angle>"
-"<time>"           <|-- "<time-of-day>"
-"<time>"           <|-- "<time-offset>"
-"<angle>"          <|-- "<directed-angle>"
-"<angle>"          <|-- "<relative-angle>"
+"<object>" <|-- "<sixty-unit>"
+"<object>" <|-- "<position>"
+"<sixty-unit>" <|-- "<time>"
+"<sixty-unit>" <|-- "<angle>"
+"<time>" <|-- "<time-of-day>"
+"<time>" <|-- "<time-offset>"
+"<angle>" <|-- "<directed-angle>"
+"<angle>" <|-- "<relative-angle>"
 "<directed-angle>" <|-- "<latitude>"
 "<directed-angle>" <|-- "<longitude>" 
-"<position>"       <|-- "<absolute-position>"
-"<position>"       <|-- "<relative-position>" 
+"<position>" <|-- "<absolute-position>"
+"<position>" <|-- "<relative-position>" 
 
 "<sixty-unit>" : total-seconds : <integer>
 "<directed-angle>" : direction : <string>
@@ -33,16 +33,5 @@ class "<relative-position>"
 "<absolute-position>" : longitude : <longitude>
 "<relative-position>" : distance : <single-float>
 "<relative-position>" : angle : <relative-angle>
-
-"<angle>" : as(<string>)
-"<directed-angle>" : as(<string>)
-"<latitude>" : as(<string>)
-"<longitude>" : as(<string>)
-"<absolute-position>" : as(<string>)
-"<relative-position>" : as(<string>)
-"<time>" : decode-total-seconds(<>)
-"<time>" : as(<string>)
-"<time-offset>" : as(<string>)
-"<time-offset>" : past?(<>)
 
 @enduml
