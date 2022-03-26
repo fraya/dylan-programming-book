@@ -13,36 +13,35 @@ define module time
   use streams;
 
   export
-      <time-of-day>
-    , <time-offset>
-    , total-seconds
-    , encode-total-seconds
-    , decode-total-seconds
-    , past?
-    ;
-
-  export <position>;
+    <sixty-unit>,
+    total-seconds;
+    
   export
-    <absolute-position>
-    , latitude
-    , longitude
-    ;
+    encode-total-seconds,
+    decode-total-seconds;
 
   export
-    <relative-position>
-    , angle
-    , distance
-    ;
+    <time>,
+    <time-of-day>,
+    <time-offset>,
+    past?;
 
   export
-    <directed-angle>
-    , total-seconds
-    , direction
-    ;
-
+    <angle>,
+    <directed-angle>,
+    direction,
+    <relative-angle>,
+    <latitude>,
+    <longitude>;
+   
+   
   export
-      <latitude>
-    , <longitude>
-    ;
+    <position>,
+    <absolute-position>,
+    latitude,
+    longitude,
+    <relative-position>,
+    angle,
+    distance;
   
 end module time;
