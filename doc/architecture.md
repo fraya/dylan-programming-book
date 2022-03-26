@@ -6,7 +6,7 @@
 
 ## Deployment
 
-![Deployment diagram] (/.deployment.svg)
+![Deployment diagram](/.deployment.svg)
 
 ## Class diagram
 
