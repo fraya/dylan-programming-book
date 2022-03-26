@@ -1,0 +1,12 @@
+@startuml
+
+folder "./src" {
+  file "sixty-unit.dylan" as sixty
+  file "time.dylan" as time
+  file "position.dylan" as position
+}
+
+sixty <- time
+position -> sixty
+
+@enduml

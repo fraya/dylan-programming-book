@@ -1,0 +1,20 @@
+@startuml
+
+folder "common-dylan" as common_dylan_lib {
+  [common-dylan] as common_dylan
+}
+
+folder "time" as time_lib { 
+  [+time] as time
+}
+
+folder "io"  as io_lib {
+  [format-out] as format_out
+  [streams]
+} 
+
+common_dylan <-- time
+format_out   <-- time 
+streams      <-- time
+
+@enduml
