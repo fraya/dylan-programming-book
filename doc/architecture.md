@@ -2,11 +2,11 @@
 
 ## Library
 
-![Library diagram](/.library.svg)
+![Library diagram](./library.svg)
 
 ## Deployment
 
-![Deployment diagram](/.deployment.svg)
+![Deployment diagram](./deployment.svg)
 
 ## Class diagram
 
