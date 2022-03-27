@@ -1,13 +1,13 @@
 # Architecture
 
-- [Library and modules](#Library and modules)
-- [Deployment](#Deployment)
-- [Classes)(#Class diagram)
+- [Library and modules](#library-and-modules)
+- [Source files](#source-files)
+- [Classes[(#class-diagram)
 
 Classes:
 
-- [`<sixty-unit>`](#Sixty unit)
-- [`<time>`](#Time)
+- [`<sixty-unit>`](#sixty-unit)
+- [`<time>`](#time)
 
 ## Library and modules
 
@@ -36,8 +36,8 @@ You can see the class diagram defined in plantuml in the file
 | o      | open         |
 | s      | sealed       |
 
-- [`<sixty-unit>`](#Sixty unit) (ao): unit of measure with 60 base.                           
-- [`<time>`](#Time) (ao): represent the pass of time or point in time             
+- [`<sixty-unit>`](#sixty-unit) (ao): unit of measure with 60 base.                           
+- [`<time>`](#time) (ao): represent the pass of time or point in time             
 - `<angle>` (ao): angle of the plane                                      
 - `<time-of-day>` (co): an event happened at this point of the day              
 - `<time-offset>` (co): an event happened some time ago
