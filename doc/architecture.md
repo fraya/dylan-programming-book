@@ -2,9 +2,9 @@
 
 - [Library and modules](#library-and-modules)
 - [Source files](#source-files)
-- [Classes[(#class-diagram)
+- [Classes](#classes) ([diagram](#class-diagram)) 
 
-Classes:
+TOC of Classes:
 
 - [`<sixty-unit>`](#sixty-unit)
 - [`<time>`](#time)
@@ -18,6 +18,9 @@ Classes:
 ![Deployment diagram](./deployment.svg)
 
 ## Classes
+
+One difference with the book is that most classes are `constant`, and
+every command that can change and object creates a new instance.
 
 ### Class diagram
 
