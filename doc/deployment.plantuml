@@ -1,12 +1,12 @@
 @startuml
 
-folder "./src" {
-  file "sixty-unit.dylan" as sixty
-  file "time.dylan" as time
-  file "position.dylan" as position
+folder "time" {
+  file "classes.dylan" as classes
+  file "features.dylan" as features
+  file "library.dylan" as library
 }
 
-sixty <- time
-position -> sixty
+library <- classes
+classes <- features
 
 @enduml
