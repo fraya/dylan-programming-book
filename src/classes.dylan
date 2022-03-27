@@ -2,30 +2,18 @@ Module:   time
 Author:   Fernando Raya
 License:  See LICENSE
 Synopsis: Module class hierarchy.
-          See graphic in "../doc/class-diagram.svg" and
-          edit it in "../doc/class-diagram.plantuml"
+Keywords: sixty unit, time, angle
+Comment:  See github#/fraya/dylan-programming-book.
+          Best viewed with https://www.gnu.org/software/hyperbole
 
-/** <sixty-unit>
-
-    <sixty-unit> is a class that can be converted either hours,
-    minutes and seconds, or to degrees, minutes and seconds. In the
-    methods for encoding and decoding total seconds, we use the name
-    `max-unit` to refer to the unit that is hours for time, and
-    degrees for positions.
-
-*/
+// doc:"../doc/architecture.md#Sixty unit"
 
 define abstract class <sixty-unit> (<object>)
   constant slot total-seconds :: <integer>,
     init-keyword: total-seconds:
 end class <sixty-unit>;
 
-/** <time>
-
-    A specific time of day from 00:00 (midnight) to below 24:00
-    (tomorrow).
-
-*/
+// doc:"../doc/architecture.md#Time"
 
 define abstract class <time> (<sixty-unit>)
 end class <time>;
