@@ -11,11 +11,11 @@ TOC of Classes:
 
 ## Library and modules
 
-![Library diagram](./library.svg)
+![Library diagram](./img/library.svg)
 
 ## Source files
 
-![Deployment diagram](./deployment.svg)
+![Deployment diagram](./img/deployment.svg)
 
 ## Classes
 
@@ -24,10 +24,10 @@ every command that can change and object creates a new instance.
 
 ### Class diagram
 
-![Class diagram](./class-diagram.svg)
+![Class diagram](./img/class-diagram.svg)
 
 You can see the class diagram defined in plantuml in the file
-"../doc/class-diagram.plantuml".
+"../doc/uml/class-diagram.plantuml".
 
 ### Classes exported
 
