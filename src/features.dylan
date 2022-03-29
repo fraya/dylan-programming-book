@@ -5,8 +5,10 @@ Synopsis: Time module features.
           Depends on "./classes.dylan".
 
 define method encode-total-seconds
-    (max-unit :: <integer>, minutes :: <integer>, seconds :: <integer>)
- => (total-seconds :: <integer>)
+    (max-unit :: <natural-number>,
+     minutes  :: <natural-number>,
+     seconds  :: <natural-number>)
+ => (total-seconds :: <natural-number>)
   ((max-unit * 60) + minutes) * 60 + seconds;
 end;
 

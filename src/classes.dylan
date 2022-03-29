@@ -6,7 +6,13 @@ Keywords: sixty unit, time, angle
 Comment:  See github#/fraya/dylan-programming-book.
           Best viewed with https://www.gnu.org/software/hyperbole
 
-// doc:"../doc/architecture.md#Sixty unit"
+// Acording to ISO-80000-2
+// http://www.iso.org/iso/catalogue_detail?csnumber=31887
+
+define constant <natural-number>
+  = limited(<integer>, min: 0);
+
+  // doc:"../doc/architecture.md#Sixty unit"
 
 define abstract class <sixty-unit> (<object>)
   constant slot total-seconds :: <integer>,
