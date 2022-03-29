@@ -46,8 +46,8 @@ end;
 define method \+
     (offset1 :: <time-offset>, offset2 :: <time-offset>)
  => (sum :: <time-offset>)
-  let sum = offset1.total-seconds + offset2.total-seconds;
-  make(<time-offset>, total-seconds: sum)
+  make(<time-offset>,
+       total-seconds: offset1.total-seconds + offset2.total-seconds)
 end;
 
 define method \+
