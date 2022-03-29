@@ -16,7 +16,7 @@ define constant <natural-number>
 
 define abstract class <sixty-unit> (<object>)
   constant slot total-seconds :: <integer>,
-    init-keyword: total-seconds:
+    required-init-keyword: total-seconds:
 end class <sixty-unit>;
 
 // doc:"../doc/architecture.md#Time"
