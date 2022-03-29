@@ -75,7 +75,8 @@ define method as
   let (hours, minutes, seconds) = decode-total-seconds(t);
   let hh = integer-to-string(hours);
   let mm = integer-to-string(minutes, size: 2);
-  concatenate(hh, ":", mm)
+  let ss = integer-to-string(seconds, size: 2);
+  concatenate(hh, ":", mm, ":", ss)
 end;
 
 define method as

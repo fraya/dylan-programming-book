@@ -29,13 +29,13 @@ end test;
 
 define test test-print-object-time-of-day ()
   let t1 = make(<time-of-day>, total-seconds: 30659);
-  assert-equal("8:30", as(<string>, t1));
+  assert-equal("8:30:59", as(<string>, t1));
   let t2 = make(<time-of-day>, total-seconds: 29399);
-  assert-equal("8:09", as(<string>, t2));
+  assert-equal("8:09:59", as(<string>, t2));
   let t3 = make(<time-offset>, total-seconds: 30659);
-  assert-equal("plus 8:30", as(<string>, t3));
+  assert-equal("plus 8:30:59", as(<string>, t3));
   let t4 = make(<time-offset>, total-seconds: -29399);
-  assert-equal("minus 8:09", as(<string>, t4));
+  assert-equal("minus 8:09:59", as(<string>, t4));
 end test;
 
 define test test-add-time-offset ()
