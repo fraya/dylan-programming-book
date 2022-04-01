@@ -36,18 +36,36 @@ define abstract class <angle> (<sixty-unit>)
 end class <angle>;
 
 define abstract class <directed-angle> (<angle>)
-  constant slot direction :: <string>,
+  constant slot direction :: <symbol>,
     init-keyword: direction:
 end class <directed-angle>;
 
 define class <relative-angle> (<angle>)
 end class <relative-angle>;
 
+// doc:"../doc/architecture.md#Latitude"
+
 define class <latitude> (<directed-angle>)
 end class <latitude>;
 
+define method initialize (latitude :: <latitude>, #key)
+  next-method();
+  if (latitude.direction ~= #"north" & latitude.direction ~= #"south")
+    error("%= is not north or south", latitude.direction)
+  end if
+end;
+
+// doc:"../doc/architecture.md#Longitude"
+
 define class <longitude> (<directed-angle>)
 end class <longitude>;
+
+define method initialize (longitude :: <longitude>, #key)
+  next-method();
+  if (longitude.direction ~= #"east" & longitude.direction ~= #"west")
+    error("%= is not east or west", latitude.direction)
+  end if
+end;
 
 /** <position> */
 

@@ -98,7 +98,7 @@ end;
 define method as
     (class == <string>, angle :: <directed-angle>)
  => (str :: <string>)
-  concatenate(next-method(), " ", angle.direction)
+  concatenate(next-method(), " ", as(<string>, angle.direction))
 end;
 
 define method as

@@ -28,7 +28,7 @@ class "<longitude>"
 "<position>" <|-- "<relative-position>" 
 
 "<sixty-unit>" : total-seconds : <integer>
-"<directed-angle>" : direction : <string>
+"<directed-angle>" : direction : <symbol>
 "<absolute-position>" : latitude : <latitude>
 "<absolute-position>" : longitude : <longitude>
 "<relative-position>" : distance : <single-float>

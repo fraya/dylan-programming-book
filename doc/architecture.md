@@ -63,6 +63,14 @@ refer to the unit that is hours for time, and degrees for positions.
 A specific time of day from 00:00 (midnight) to below 24:00
 (tomorrow).
 
+### Latitude
+
+Valid `direction` must be `#"north"` or `#"south"`
+
+### Longitude
+
+Valid `direction` must be `#"east"` or `#"west"`
+
 ## Features
 
 - `total-seconds(<sixty-unit>) => <integer>`
